@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+    echo -e "Which image do you want to run?\n"
+    docker images
+    exit 1
+fi
+
+docker run --rm -t -i $1 /bin/bash

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dock-rm
+docker images | grep -E '[a-z0-9]{40}' | tr -s ' ' | cut -f 1,2 -d ' ' | sed 's/ /:/' | xargs docker rmi
+dock-rmi
+

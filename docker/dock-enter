@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+    ID=$(docker ps -q)
+else
+    ID=$1
+fi
+
+export PID=$(docker inspect --format {{.State.Pid}} $ID)
+echo $ID $PID
+sudo nsenter --target $PID --mount --net --pid --ipc /bin/bash
