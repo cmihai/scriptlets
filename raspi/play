@@ -1,0 +1,6 @@
+#!/bin/bash -x
+
+DIRECTORY="$HOME/Downloads"
+FILENAME=$(youtube-dl --get-filename -f 18 "$@")
+youtube-dl -f 18 -o "$DIRECTORY/$FILENAME" "$@"
+omxplayer -b "$DIRECTORY/$FILENAME"
